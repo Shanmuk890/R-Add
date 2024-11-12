@@ -54,8 +54,6 @@ jobs:
           --platform "managed" \
           --allow-unauthenticated \
           --execution-environment gen2 \
-          --add-volume=name=gcs-1,type=cloud-storage,bucket=bucketcloudr \
-          --mount-path /mnt/my-volume-r
 
 
       
