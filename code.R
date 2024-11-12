@@ -20,7 +20,7 @@ function(a, b) {
   # Sum the numbers
   result <- a + b
 
-  
+  output_path <- "/mnt/my-volume-r/output.txt"
   # Return the result
   return(list(sum = result))
 }
