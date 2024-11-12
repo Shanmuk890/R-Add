@@ -22,6 +22,14 @@ function(a, b) {
   
   # Sum the numbers
   result <- a + b
+  # Create the output text
+  output_text <- paste("Sum of", a, "and", b, "is", result)
+  
+  # Authenticate with Google Cloud (this is handled automatically on Cloud Run)
+  gcs_auth()
+  
+  # Upload the result to Cloud Storage (bucketcloudr)
+  gcs_upload(textConnection(output_text), bucket = bucket_name, name = "output.txt")
   
   # Return the result
   return(list(sum = result, message = "Result uploaded to GCS"))
