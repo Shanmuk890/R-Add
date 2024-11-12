@@ -19,10 +19,6 @@ function(a, b) {
   
   # Sum the numbers
   result <- a + b
-  
-  # Write the result to a file in the mounted GCS volume
-output_path <- "/mnt/my-volume-r/output.txt"
-write(paste("Sum of", a, "and", b, "is", result), file = output_path)
 
   
   # Return the result
