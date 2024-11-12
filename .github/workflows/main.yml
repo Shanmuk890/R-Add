@@ -33,6 +33,10 @@ jobs:
       - name: Enable component beta
         run: gcloud components install beta
 
+      - name: Create Cloud Storage Bucket
+        run: |
+          gsutil mb gs://$BUCKET_NAME
+
       - name: Authorize Docker push
         run: gcloud auth configure-docker
      
@@ -54,8 +58,8 @@ jobs:
           --platform "managed" \
           --allow-unauthenticated \
           --execution-environment gen2 \
-          --volumes "name=gcs-volume,volumeSource={gcs={bucket=$BUCKET_NAME}}" \
-          --mount-path "/mnt/data" 
+          --add-volume name=gcs-volume,volume-source=gcs-bucket=$BUCKET_NAME \
+          --mount-path /mnt/data
       
       - name: Upload build logs to Cloud Storage
         run: |-
