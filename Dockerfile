@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Plumber package and any other R packages you need
-RUN R -e "install.packages('plumber')"
+RUN R -e "install.packages('plumber', 'googleCloudStorageR')"
 
 # Copy your code.R file into the container
 COPY code.R /usr/local/src/app/code.R
