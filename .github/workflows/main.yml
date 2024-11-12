@@ -13,7 +13,6 @@ env:
   PROJECT_ID: ${{ secrets.CLOUD_RUN_PROJECT_NAME }}
   REGION: us-central1
   REPO_NAME: symphonize
-  BUCKET_NAME: bucketcloudr
 
 jobs:
   build_and_deploy:
@@ -54,9 +53,9 @@ jobs:
           --platform "managed" \
           --allow-unauthenticated \
           --execution-environment gen2 \
+          --add-volume=name=mount-r,type=cloud-storage,bucket=buckercloudr \
+          --add-volume-mount=volume=mount-r,mount-path=/mnt/cloud-storage
+
       
       
-      - name: Upload build logs to Cloud Storage
-        run: |-
-          echo "Build logs for $REPO_NAME" > build_logs.txt
-          gsutil cp build_logs.txt gs://$BUCKET_NAME/build_logs/$GITHUB_SHA-log.txt
+
