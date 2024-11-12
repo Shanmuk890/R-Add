@@ -54,7 +54,7 @@ jobs:
           --platform "managed" \
           --allow-unauthenticated \
           --execution-environment gen2 \
-          --add-volume name=gcs-volume,volume-source=gcs-bucket=$BUCKET_NAME \
+          --add-volume name=gcs-volume,type=gcs,volume-source=gcs-bucket=$BUCKET_NAME \
           --mount-path /mnt/data
       
       - name: Upload build logs to Cloud Storage
