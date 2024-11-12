@@ -1,4 +1,4 @@
-name: Build and Deploy Plumber API to Cloud Run
+name: Build and Deploy packages to Cloud Run
 
 on:
   workflow_dispatch:
