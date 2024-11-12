@@ -54,7 +54,7 @@ jobs:
           --platform "managed" \
           --allow-unauthenticated \
           --execution-environment gen2 \
-          --add-volume=name=mount_r,type=cloud-storage,bucket=bucketcloudr\
+
 
       
       
