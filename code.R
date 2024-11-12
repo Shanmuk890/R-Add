@@ -4,10 +4,6 @@ library(googleAuthR)
 library(googleCloudStorageR)
 library(logger)
 
-# Create the function that sums two numbers
-# This function will be exposed as an API endpoint
-# The numbers will be passed as query parameters
-
 #* @get /sum
 #* @param a First number
 #* @param b Second number
@@ -23,5 +19,11 @@ function(a, b) {
   
   # Sum the numbers
   result <- a + b
+  
+  # Write the result to a file in the mounted GCS volume
+  output_path <- "/mnt/data/output.txt"
+  write(paste("Sum of", a, "and", b, "is", result), file = output_path)
+  
+  # Return the result
   return(list(sum = result))
 }
