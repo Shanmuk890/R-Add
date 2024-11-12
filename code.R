@@ -21,8 +21,9 @@ function(a, b) {
   result <- a + b
   
   # Write the result to a file in the mounted GCS volume
-  output_path <- "/mnt/data/output.txt"
-  write(paste("Sum of", a, "and", b, "is", result), file = output_path)
+output_path <- "/mnt/my-volume-r/output.txt"
+write(paste("Sum of", a, "and", b, "is", result), file = output_path)
+
   
   # Return the result
   return(list(sum = result))
