@@ -33,10 +33,6 @@ jobs:
       - name: Enable component beta
         run: gcloud components install beta
 
-      - name: Create Cloud Storage Bucket
-        run: |
-          gsutil mb gs://$BUCKET_NAME
-
       - name: Authorize Docker push
         run: gcloud auth configure-docker
      
